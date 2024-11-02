@@ -149,7 +149,7 @@
     <!-- Sweet Alert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <?php if($_SESSION['gagal']){ ?>
+    <?php if(isset($_SESSION['gagal'])){ ?>
       <script>
         Swal.fire({
           icon: "error",
@@ -203,6 +203,29 @@
       </script>
       <?php unset($_SESSION['validasi']); ?>
     <?php endif; ?>
+
+    <!-- Alert Konfirmasi hapus -->
+    <script>
+      $('.tombol-hapus').on('click', function(){
+        var getlink = $(this).attr('href');
+
+        Swal.fire({
+          title: "Yakin hapus?",
+          text: "Data yang dihapus tidak bisa dikembalikan!",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Ya, hapus"
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.href = getlink;
+          }
+        });
+        return false;
+      });
+    
+    </script>
 
   </body>
 </html>
