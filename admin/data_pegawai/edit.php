@@ -1,6 +1,6 @@
 <?php 
-session_start();
 ob_start();
+session_start();
 
 if(!isset($_SESSION['login'])){
   header('Location: ../../auth/login.php?pesan=belum_login');

@@ -147,15 +147,15 @@ require_once('../../config.php');
             </div>
             <div class="nav-item dropdown">
               <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown" aria-label="Open user menu">
-                <span class="avatar avatar-sm" style="background-image: url(<?= base_url() ?>/assets/static/avatars/000m.jpg)"></span>
+                <span class="avatar avatar-sm" style="background-image: url('<?= base_url('/assets/img/foto_pegawai/') . $_SESSION['foto'] ?>')"></span>
                 <div class="d-none d-xl-block ps-2">
-                  <div>Paweł Kuna</div>
-                  <div class="mt-1 small text-secondary">UI Designer</div>
+                  <div><?= $_SESSION['nama']; ?></div>
+                  <div class="mt-1 small text-secondary"><?= $_SESSION['jabatan']; ?></div>
                 </div>
               </a>
               <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-              <a href="#" class="dropdown-item">Profile</a>
-                <a href="./profile.html" class="dropdown-item">Ubah Password</a>
+                <a href="<?= base_url('admin/fitur_lainnya/profile.php') ?>" class="dropdown-item">Profile</a>
+                <a href="<?= base_url('admin/fitur_lainnya/ubah_password.php') ?>" class="dropdown-item">Ubah Password</a>
                 <a href="<?= base_url('auth/logout.php') ?>" class="dropdown-item">Logout</a>
               </div>
             </div>
