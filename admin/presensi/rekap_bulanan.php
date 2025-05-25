@@ -64,14 +64,28 @@ else{
               <option value="12">Desember</option>
             </select>
 
-            <select name="filter_tahun" class="form-control mx-2">
+            <!-- <select name="filter_tahun" class="form-control mx-2">
               <option value="">-- Pilih Tahun --</option>
               <option value="2020">2020</option>
               <option value="2021">2021</option>
               <option value="2022">2022</option>
               <option value="2023">2023</option>
               <option value="2024">2024</option>
+            </select> -->
+
+            <?php
+            $tahunSekarang = date('Y');
+            ?>
+
+            <select name="filter_tahun" class="form-control mx-2">
+              <option value="">-- Pilih Tahun --</option>
+              <?php for ($i = 5; $i >= 0; $i--): 
+                $tahun = $tahunSekarang - $i;
+              ?>
+                <option value="<?= $tahun ?>"><?= $tahun ?></option>
+              <?php endfor; ?>
             </select>
+
             <button type="submit" class="btn btn-primary">Tampilkan</button>
             <button type="refres" class="btn btn-success mx-2">Refres</button>
           </div>
